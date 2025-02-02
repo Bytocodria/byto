@@ -1,57 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bytocodria</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(to bottom right, #000428, #004e92); /* Black to blue gradient */
-            color: white;
-        }
-        .navbar {
-            background-color: #003366; /* Dark blue */
-        }
-        .navbar-brand, .nav-link {
-            color: white !important;
-        }
-        .hero-section {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .hero-section h1 {
-            font-size: 3rem;
-            font-weight: bold;
-        }
-        .hero-section p {
-            font-size: 1.25rem;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Bytocodria</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#services" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"> Services</a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#">Software Development</a></li>
+                            <li><a class="dropdown-item" href="#">Web Development</a></li>
+                            <li><a class="dropdown-item" href="#">Mobile Applications</a></li>
+                            <li><a class="dropdown-item" href="#">Cloud Engineering</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#Business" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"> Business</a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#">Data Entry</a></li>
+                            <li><a class="dropdown-item" href="#">Data Analysis</a></li>
+                            <li><a class="dropdown-item" href="#">Marketing (SEO)</a></li>
+                            <li><a class="dropdown-item" href="#">Operations</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#Courses" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"> Courses</a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#">Computer Literacy</a></li>
+                            <li><a class="dropdown-item" href="#">Programming</a></li>
+                            <li><a class="dropdown-item" href="#">DevOps</a></li>
+                            <li><a class="dropdown-item" href="#">Materials (বাংলা)</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#Training" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"> Training</a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#">On-Job Training</a></li>
+                            <li><a class="dropdown-item" href="#">Online classroom</a></li>
+                            <li><a class="dropdown-item" href="#">Study Center</a></li>
+                            <li><a class="dropdown-item" href="#">Materials (বাংলা)</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="#Blog">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -60,9 +80,7 @@
     <!-- Hero Section -->
     <div class="hero-section">
         <div>
-            <h1>Welcome to Bytocodria</h1>
-            <p>Your one-stop solution for innovative ideas and technology!</p>
-            <a href="#about" class="btn btn-primary btn-lg">Learn More</a>
+
         </div>
     </div>
 
@@ -74,4 +92,5 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

@@ -2,7 +2,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #264bf1;
+    background: linear-gradient(to bottom right, #3b4bd3, #6866f8); 
+    color: white;
+
 }
 
 header {
@@ -21,6 +24,7 @@ nav ul li {
     display: inline;
     margin: 0 1em;
 }
+
 
 nav ul li a {
     color: #fff;
@@ -65,3 +69,33 @@ button {
     border: none;
     cursor: pointer;
 }
+.navbar {
+    background-color: #003366; /* Dark blue */
+}
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+.hero-section p {
+    font-size: 1.25rem;
+}
+
+.dropdown-item:hover {
+    background-color:chocolate;
+}
+.dropdown-menu {
+    padding: 0; /* Remove padding */
+    margin: 0;   /* Remove margin */
+    box-shadow: none; /* Remove the box-shadow if there's any */
+  }
