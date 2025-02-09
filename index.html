@@ -7,6 +7,7 @@
     <title>Bytocodria</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -78,10 +79,47 @@
     </nav>
 
     <!-- Hero Section -->
-    <div class="hero-section">
-        <div>
+    <div class="slider-container">
+        <div id="slider">
+
+            <!-- Slide 1 -->
+            <div class="slide">
+                <img src="https://res.cloudinary.com/dapyiodmq/image/upload/v1738521495/indexpageimage3_pvjvgr.jpg"
+                alt="slide1" class="slides active">
+
+                <div class="slide-text"> <h1>Welcome to Bytocodria</h1></div>
+
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="https://res.cloudinary.com/dapyiodmq/image/upload/v1738521493/indexpageimage4_ogsdx2.jpg"
+                alt="slide2" class="slides">
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="https://res.cloudinary.com/dapyiodmq/image/upload/v1738521492/indexpageimage2_cmceqb.jpg"
+                alt="slide3" class="slides">
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <img src="https://res.cloudinary.com/dapyiodmq/image/upload/v1738521492/indexpageimage1_djqu6b.jpg"
+                alt="slide4" class="slides">
+            </div>
+         <div id="prev"><i class="fa-solid fa-angles-left"></i></div>       
+         <div id="next"><i class="fa-solid fa-angles-right"></i></div>
+        </div>
+        <div class="dots-container">
+            <div class="dot activeDot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+
 
         </div>
+
     </div>
 
     <!-- Footer -->
@@ -91,6 +129,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
