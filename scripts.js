@@ -1,32 +1,48 @@
-let slides = document.getElementsByClassName("slides");
-let navlinks = document.getElementsByClassName("dot");
-let currentSlide = 0;
 
-document.getElementById("next").addEventListener("click", ()=>{changeSlide(currentSlide +1);});
+let slideIndex = 0;
 
-document.getElementById("prev").addEventListener("click", ()=>{changeSlide(currentSlide -1);});
 
-function changeSlide(moveTo) {
+function controller(x) {
 
-if (moveTo >= slides.length) {moveTo = 0;}
-if (moveTo < 0) {moveTo = slides.length - 1;}
-
-slides[currentSlide].classList.toggle("active");
-navlinks[currentSlide].classList.toggle("activeDot");
-slides[moveTo].classList.toggle("active");
-navlinks[moveTo].classList.toggle("activeDot");
-currentSlide=moveTo; 
-
+    slideIndex = slideIndex + x;
+    slideshow(slideIndex);
 }
 
 
-document.querySelectorAll(".dot").forEach((bullet, bulletIndex)=> {bullet.addEventListener("click", ()=> {
-    if(currentSlide !== bulletIndex) {
-        changeSlide(bulletIndex);
-    }
-});
-});
+// Function to change slides automatically
+function autoChangeSlides() {
+    slideIndex++;
+    slideshow(slideIndex);
+}
 
-window.onload=setInterval( function() {
-changeSlide(currentSlide+1)
-}, 3000);
+// Set the auto-slideshow to change slides every 3 seconds (3000ms)
+setInterval(autoChangeSlides, 3000);
+
+
+slideshow(slideIndex);
+
+
+
+function slideshow(num) {
+    let slides = document.getElementsByClassName("slide");
+
+
+    if (num == slides.length) {
+        slideIndex = 0;
+        num = 0; 
+    }
+
+    if (num < 0) {
+        slideIndex = slides.length -1;
+        num = slides.length-1; 
+    }
+
+
+    for (y of slides) {
+
+        y.style.display = "none";
+    }
+
+    slides[num].style.display="block";
+
+}
