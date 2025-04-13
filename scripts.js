@@ -46,3 +46,15 @@ function slideshow(num) {
     slides[num].style.display="block";
 
 }
+
+let horislider = document.querySelector('.horizontal-slider-images');
+
+// Function to stop the sliding animation on hover
+function stopSlide() {
+    slider.style.animationPlayState = 'paused';
+}
+
+// Function to start the sliding animation when mouse leaves
+function startSlide() {
+    slider.style.animationPlayState = 'running';
+}
