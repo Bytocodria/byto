@@ -1,27 +1,31 @@
-name: Deploy Website to Google Cloud VM
+name: Deploy to Google Cloud VM
 
 on:
   push:
     branches:
-      - main  # Trigger deployment when pushing to the 'main' branch
+      - main  # or whichever branch you're using for deployment
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-    - name: Set up SSH keys
+    - name: Set up SSH
       run: |
-        echo "$PRIVATE_KEY" > private_key.pem
-        chmod 600 private_key.pem
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        ssh-keyscan -H ${{ secrets.GCP_VM_HOST }} >> ~/.ssh/known_hosts
 
-    - name: Copy files to VM
+    - name: Deploy files to VM
       run: |
-        scp -i private_key.pem -o StrictHostKeyChecking=no -r * $USER@$VM_IP:/var/www/html
+        rsync -avz --delete ./ \
+        ${{ secrets.GCP_VM_USERNAME }}@${{ secrets.GCP_VM_HOST }}:/var/www/html
 
-    - name: Restart Nginx on VM
+    - name: Restart web server (optional)
       run: |
-        ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$VM_IP "sudo systemctl restart nginx"
+        ssh -i ~/.ssh/id_ed25519 ${{ secrets.GCP_VM_USERNAME }}@${{ secrets.GCP_VM_HOST }} \
+        "sudo systemctl restart nginx"
