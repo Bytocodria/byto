@@ -25,7 +25,7 @@ jobs:
         rsync -avz -v --delete ./ \
         ${{ secrets.GCP_VM_USERNAME }}@${{ secrets.GCP_VM_HOST }}:/var/www/html
 
-    - name: Restart web server (optional)
+    - name: Restart web server (opt)
       run: |
         ssh -i ~/.ssh/id_ed25519 ${{ secrets.GCP_VM_USERNAME }}@${{ secrets.GCP_VM_HOST }} \
         "sudo systemctl restart nginx"
