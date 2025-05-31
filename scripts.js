@@ -1,25 +1,21 @@
 
 let slideIndex = 0;
-
+let slideInterval;
 
 function controller(x) {
 
-    slideIndex = slideIndex + x;
+    slideIndex += x;
     slideshow(slideIndex);
 }
 
 
-// Function to change slides automatically
-function autoChangeSlides() {
-    slideIndex++;
-    slideshow(slideIndex);
-}
+
 
 // Set the auto-slideshow to change slides every 3 seconds (3000ms)
-setInterval(autoChangeSlides, 3000);
+//setInterval(autoChangeSlides, 3000);
 
 
-slideshow(slideIndex);
+//slideshow(slideIndex);
 
 
 
@@ -27,18 +23,22 @@ function slideshow(num) {
     let slides = document.getElementsByClassName("slide");
 
 
-    if (num == slides.length) {
+   // if (num == slides.length) {
+      //  slideIndex = 0;
+       // num = 0; 
+    //}
+    if (num >= slides.length) {
         slideIndex = 0;
-        num = 0; 
+        num = 0;
     }
 
     if (num < 0) {
         slideIndex = slides.length -1;
-        num = slides.length-1; 
+        num = slideIndex;
     }
 
 
-    for (y of slides) {
+    for (let y of slides) {
 
         y.style.display = "none";
     }
@@ -47,14 +47,29 @@ function slideshow(num) {
 
 }
 
-let horislider = document.querySelector('.horizontal-slider-images');
-
-// Function to stop the sliding animation on hover
-function stopSlide() {
-    slider.style.animationPlayState = 'paused';
+// Function to change slides automatically
+function autoChangeSlides() {
+    slideIndex++;
+    slideshow(slideIndex);
 }
 
-// Function to start the sliding animation when mouse leaves
-function startSlide() {
-    slider.style.animationPlayState = 'running';
+function startSlideShow() {
+    slideInterval = setInterval(autoChangeSlides, 3000);
 }
+
+function stopSlideShow() {
+    clearInterval(slideInterval);
+}
+
+slideshow(slideIndex);
+startSlideShow();
+// Pause on hover for the main slideshow
+const slideshowContainer = document.querySelector('.slider-container1');
+slideshowContainer.addEventListener('mouseover', stopSlideShow);
+slideshowContainer.addEventListener('mouseout', startSlideShow);
+
+// Pause on touch for mobile users
+slideshowContainer.addEventListener('touchstart', stopSlideShow);
+slideshowContainer.addEventListener('touchend', startSlideShow);
+
+
