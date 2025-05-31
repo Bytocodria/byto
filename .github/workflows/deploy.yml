@@ -22,7 +22,7 @@ jobs:
 
     - name: Deploy files to VM
       run: |
-        rsync -avz -v --delete ./ \
+        rsync -avz -e "ssh -i ~/.ssh/id_ed25519" --delete ./ \
         ${{ secrets.GCP_VM_USERNAME }}@${{ secrets.GCP_VM_HOST }}:/var/www/html
 
     - name: Restart web server (optional)
