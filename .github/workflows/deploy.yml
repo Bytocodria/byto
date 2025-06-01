@@ -25,7 +25,12 @@ jobs:
         rsync -avz -e "ssh -i ~/.ssh/id_ed25519" --delete ./ \
         ${{ secrets.GCP_VM_USERNAME }}@${{ secrets.GCP_VM_HOST }}:/var/www/html
 
-    - name: Restart web server (optional)
+         - name: Run cache busting script on VM
+      run: |
+        ssh -i ~/.ssh/id_ed25519 ${{ secrets.GCP_VM_USERNAME }}@${{ secrets.GCP_VM_HOST }} \
+        "cd /var/www/html && ./update_version.sh"
+
+    - name: Restart web server
       run: |
         ssh -i ~/.ssh/id_ed25519 ${{ secrets.GCP_VM_USERNAME }}@${{ secrets.GCP_VM_HOST }} \
         "sudo systemctl restart nginx"
