@@ -25,7 +25,7 @@ jobs:
         rsync -avz -e "ssh -i ~/.ssh/id_ed25519" --delete ./ \
         ${{ secrets.GCP_VM_USERNAME }}@${{ secrets.GCP_VM_HOST }}:/var/www/html
 
-         - name: Run cache busting script on VM
+    - name: Run cache busting script on VM
       run: |
         ssh -i ~/.ssh/id_ed25519 ${{ secrets.GCP_VM_USERNAME }}@${{ secrets.GCP_VM_HOST }} \
         "cd /var/www/html && ./update_version.sh"
