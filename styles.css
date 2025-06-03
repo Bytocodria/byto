@@ -111,6 +111,8 @@ button {
     text-align: start;
     padding: 10px 0;
     z-index: 1000;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .navbar-brand,
