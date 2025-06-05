@@ -124,6 +124,11 @@ button {
     background-color: chocolate;
 }
 
+.dropdown-item {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .dropdown-menu {
     padding: 0;
     /* Remove padding */
@@ -131,6 +136,15 @@ button {
     /* Remove margin */
     box-shadow: none;
     /* Remove the box-shadow if there's any */
+}
+
+.logo-round {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: width 0.3s ease;
+    margin: 5px;
 }
 
 #prev,
@@ -176,7 +190,6 @@ button {
 }
 
 
-
 .slider-container1 {
     width: 100%;
     max-width: 100%;
@@ -193,6 +206,7 @@ button {
     object-fit: cover;
     max-width: 100%;
     display: block;
+
 }
 
 .icon-img img {
@@ -200,6 +214,7 @@ button {
     width: 300px;
     height: auto;
     margin-bottom: 5px;
+    max-width: 100%;
 }
 
 
@@ -263,20 +278,22 @@ button {
 }
 
 .cardcontainer {
-  display: flex;
-  flex-wrap:wrap;    /* Prevent wrapping */
-  width: 100%;
-  gap: 2rem; 
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* Prevent wrapping */
+    width: 100%;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
+
 .card {
-  flex: 1 1 0;
-  margin: 1rem 0;          
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+    flex: 1 1 0;
+    margin: 1rem 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .cardcontainer img {
@@ -285,6 +302,7 @@ button {
     height: auto;
     /* Maintain aspect ratio */
     object-fit: cover;
+    max-width: 100%;
 }
 
 
@@ -304,13 +322,14 @@ button {
 .article {
 
     max-width: 900px;
-    width: 900px;
+    width: 100%;
     margin: 0 auto;
     padding: 1rem;
     line-height: 1.5;
     font-size: 18px;
     font-family: 'Lora', serif;
     color: #111;
+    box-sizing: border-box;
 
 }
 
@@ -420,10 +439,24 @@ button {
     width: auto;
     object-fit: contain;
     display: block;
+    max-width: 100%;
 }
 
 /* Styles for screens with a minimum width of 360px (small mobile devices) */
 @media screen and (max-width: 575px) {
+
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container-fluid {
+    max-width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
 
 
     .bodysub {
@@ -439,6 +472,8 @@ button {
     .slide img {
 
         height: 300px;
+        max-width: 100%;
+
     }
 
     .icon-img img {
@@ -446,6 +481,7 @@ button {
         width: 100%;
         height: 100%;
         padding-left: 0px;
+        max-width: 100%;
     }
 
     .bodysub-flex-row {
@@ -460,6 +496,24 @@ button {
         /* Let the container grow with content */
     }
 
+    .logo-round img {
+        width: 10px;
+        height: 10px;
+        flex-shrink: 0;
+        object-fit: cover;
+    }
+
+    .navbar-brand {
+    font-size: 1rem;
+    white-space: nowrap;   /* Prevent text wrapping */
+    overflow: hidden;      /* Hide overflow */
+    text-overflow: ellipsis; /* Show ... if too long */
+  }
+  .navbar {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
     .slogan h1 {
         font-size: 6vw;
     }
@@ -470,18 +524,18 @@ button {
     }
 
     .cardcontainer {
-    
+
         flex-direction: row;
         justify-content: flex-start;
-        padding:  0 1rem;
+        padding: 0 1rem;
     }
 
     .card {
-      
+
         flex: 1 1 calc(50% - 50px);
-       
+
         box-sizing: border-box;
-        
+
     }
 
     .dropdown-item:focus {
@@ -493,5 +547,6 @@ button {
         width: auto;
         object-fit: contain;
         display: block;
+        max-width: 100%;
     }
 }
