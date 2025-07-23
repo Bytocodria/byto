@@ -23,9 +23,9 @@ function slideshow(num) {
     let slides = document.getElementsByClassName("slide");
 
 
-   // if (num == slides.length) {
-      //  slideIndex = 0;
-       // num = 0; 
+    // if (num == slides.length) {
+    //  slideIndex = 0;
+    // num = 0; 
     //}
     if (num >= slides.length) {
         slideIndex = 0;
@@ -33,7 +33,7 @@ function slideshow(num) {
     }
 
     if (num < 0) {
-        slideIndex = slides.length -1;
+        slideIndex = slides.length - 1;
         num = slideIndex;
     }
 
@@ -43,7 +43,7 @@ function slideshow(num) {
         y.style.display = "none";
     }
 
-    slides[num].style.display="block";
+    slides[num].style.display = "block";
 
 }
 
@@ -73,3 +73,31 @@ slideshowContainer.addEventListener('touchstart', stopSlideShow);
 slideshowContainer.addEventListener('touchend', startSlideShow);
 
 
+const scrollTrack = document.getElementById('scroll-track');
+const scrollContainer = document.getElementById('scroll-container');
+
+const clone = scrollTrack.cloneNode(true);
+while (clone.children.length > 0) {
+    scrollTrack.appendChild(clone.children[0]);
+}
+
+let isPaused = false;
+scrollContainer.addEventListener('mouseenter', () => {
+    isPaused = true;
+});
+scrollContainer.addEventListener('mouseleave', () => {
+    isPaused = false;
+  });
+
+function autoScroll() {
+    if (!isPaused) {
+        scrollContainer.scrollLeft += 1;
+
+        // If we reach the end, reset to start
+        if (scrollContainer.scrollLeft >= scrollTrack.scrollWidth / 2) {
+            scrollContainer.scrollLeft = 0;
+        }
+    }
+    requestAnimationFrame(autoScroll);
+}
+autoScroll();
